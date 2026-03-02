@@ -21,11 +21,6 @@ class ProductSetController extends AbstractController
      */
     public const PARAM_ID = 'id';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function productSetSelectedTableAction(Request $request): JsonResponse
     {
         $idProductSet = $request->query->getInt(static::PARAM_ID) ?: null;
@@ -35,11 +30,6 @@ class ProductSetController extends AbstractController
         );
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function productSetViewTableAction(Request $request): JsonResponse
     {
         return $this->jsonResponse(

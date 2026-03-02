@@ -27,11 +27,6 @@ class ContentProductSetGuiDependencyProvider extends AbstractBundleDependencyPro
      */
     public const PROPEL_QUERY_PRODUCT_SET = 'PROPEL_QUERY_PRODUCT_SET';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $this->addProductQueryContainer($container);
@@ -40,11 +35,6 @@ class ContentProductSetGuiDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return void
-     */
     protected function addProductQueryContainer(Container $container): void
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_SET, $container->factory(function () {
@@ -52,11 +42,6 @@ class ContentProductSetGuiDependencyProvider extends AbstractBundleDependencyPro
         }));
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return void
-     */
     protected function addLocaleFacade(Container $container): void
     {
         $container->set(static::FACADE_LOCALE, function (Container $container) {

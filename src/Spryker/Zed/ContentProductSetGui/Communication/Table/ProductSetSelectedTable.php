@@ -98,12 +98,6 @@ class ProductSetSelectedTable extends AbstractTable
      */
     protected $idProductSet;
 
-    /**
-     * @param \Orm\Zed\ProductSet\Persistence\SpyProductSetQuery $productSetQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param string|null $identifierSuffix
-     * @param int|null $idProductSet
-     */
     public function __construct(
         SpyProductSetQuery $productSetQuery,
         LocaleTransfer $localeTransfer,
@@ -116,11 +110,6 @@ class ProductSetSelectedTable extends AbstractTable
         $this->idProductSet = $idProductSet;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $parameters = [];
@@ -154,9 +143,6 @@ class ProductSetSelectedTable extends AbstractTable
         return $config;
     }
 
-    /**
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function newTableConfiguration(): TableConfiguration
     {
         $tableConfiguration = parent::newTableConfiguration();
@@ -196,11 +182,6 @@ class ProductSetSelectedTable extends AbstractTable
         return $productSetList;
     }
 
-    /**
-     * @param \Orm\Zed\ProductSet\Persistence\SpyProductSet $productSetEntity
-     *
-     * @return array
-     */
     protected function formatRow(SpyProductSet $productSetEntity): array
     {
         return [
@@ -212,11 +193,6 @@ class ProductSetSelectedTable extends AbstractTable
         ];
     }
 
-    /**
-     * @param \Orm\Zed\ProductSet\Persistence\SpyProductSet $productSetEntity
-     *
-     * @return string
-     */
     protected function getStatusLabel(SpyProductSet $productSetEntity): string
     {
         if (!$productSetEntity->getIsActive()) {
@@ -226,11 +202,6 @@ class ProductSetSelectedTable extends AbstractTable
         return $this->generateLabel('Active', 'label-primary');
     }
 
-    /**
-     * @param \Orm\Zed\ProductSet\Persistence\SpyProductSet $productSetEntity
-     *
-     * @return string
-     */
     protected function getActionButtons(SpyProductSet $productSetEntity): string
     {
         $actionButtons = [];

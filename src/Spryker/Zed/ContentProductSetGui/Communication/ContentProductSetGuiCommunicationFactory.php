@@ -21,11 +21,6 @@ use Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory;
  */
 class ContentProductSetGuiCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @param string|null $identifierPostfix
-     *
-     * @return \Spryker\Zed\ContentProductSetGui\Communication\Table\ProductSetViewTable
-     */
     public function createProductSetViewTable(?string $identifierPostfix = null): ProductSetViewTable
     {
         return new ProductSetViewTable(
@@ -35,12 +30,6 @@ class ContentProductSetGuiCommunicationFactory extends AbstractCommunicationFact
         );
     }
 
-    /**
-     * @param int|null $idProductSet
-     * @param string|null $identifierPostfix
-     *
-     * @return \Spryker\Zed\ContentProductSetGui\Communication\Table\ProductSetSelectedTable
-     */
     public function createProductSetSelectedTable(?int $idProductSet, ?string $identifierPostfix = null): ProductSetSelectedTable
     {
         return new ProductSetSelectedTable(
@@ -51,25 +40,16 @@ class ContentProductSetGuiCommunicationFactory extends AbstractCommunicationFact
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ContentProductSetGui\Communication\Mapper\ContentGui\ContentProductSetGuiEditorConfigurationMapperInterface
-     */
     public function createContentProductSetGuiEditorMapper(): ContentProductSetGuiEditorConfigurationMapperInterface
     {
         return new ContentProductSetGuiEditorConfigurationMapper($this->getConfig());
     }
 
-    /**
-     * @return \Orm\Zed\ProductSet\Persistence\SpyProductSetQuery
-     */
     public function getProductSetQuery(): SpyProductSetQuery
     {
         return $this->getProvidedDependency(ContentProductSetGuiDependencyProvider::PROPEL_QUERY_PRODUCT_SET);
     }
 
-    /**
-     * @return \Spryker\Zed\ContentProductSetGui\Dependency\Facade\ContentProductSetGuiToLocaleInterface
-     */
     public function getLocaleFacade(): ContentProductSetGuiToLocaleInterface
     {
         return $this->getProvidedDependency(ContentProductSetGuiDependencyProvider::FACADE_LOCALE);

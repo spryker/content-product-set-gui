@@ -91,11 +91,6 @@ class ProductSetViewTable extends AbstractTable
      */
     protected $identifierSuffix;
 
-    /**
-     * @param \Orm\Zed\ProductSet\Persistence\SpyProductSetQuery $productSetQuery
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param string|null $identifierSuffix
-     */
     public function __construct(
         SpyProductSetQuery $productSetQuery,
         LocaleTransfer $localeTransfer,
@@ -106,11 +101,6 @@ class ProductSetViewTable extends AbstractTable
         $this->identifierSuffix = $identifierSuffix;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $this->baseUrl = static::BASE_URL;
@@ -165,11 +155,6 @@ class ProductSetViewTable extends AbstractTable
         return $productSetList;
     }
 
-    /**
-     * @param \Orm\Zed\ProductSet\Persistence\SpyProductSet $productSetEntity
-     *
-     * @return array
-     */
     protected function formatRow(SpyProductSet $productSetEntity): array
     {
         return [
@@ -181,11 +166,6 @@ class ProductSetViewTable extends AbstractTable
         ];
     }
 
-    /**
-     * @param \Orm\Zed\ProductSet\Persistence\SpyProductSet $productSetEntity
-     *
-     * @return string
-     */
     protected function getStatusLabel(SpyProductSet $productSetEntity): string
     {
         if (!$productSetEntity->getIsActive()) {
@@ -195,11 +175,6 @@ class ProductSetViewTable extends AbstractTable
         return $this->generateLabel('Active', 'label-primary');
     }
 
-    /**
-     * @param \Orm\Zed\ProductSet\Persistence\SpyProductSet $productSetEntity
-     *
-     * @return string
-     */
     protected function getActionButtons(SpyProductSet $productSetEntity): string
     {
         $actionButtons = [];
