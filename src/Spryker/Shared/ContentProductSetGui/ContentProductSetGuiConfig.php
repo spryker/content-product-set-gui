@@ -12,6 +12,8 @@ use Spryker\Shared\Kernel\AbstractSharedConfig;
 class ContentProductSetGuiConfig extends AbstractSharedConfig
 {
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\ContentProductSet\ContentProductSetConfig::CONTENT_TYPE_PRODUCT_SET
      *
      * Content item product set
@@ -21,6 +23,8 @@ class ContentProductSetGuiConfig extends AbstractSharedConfig
     public const CONTENT_TYPE_PRODUCT_SET = 'Product Set';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\ContentProductSet\ContentProductSetConfig::CONTENT_TERM_PRODUCT_SET
      *
      * Content item product set
