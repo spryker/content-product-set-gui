@@ -23,7 +23,7 @@ class ProductSetController extends AbstractController
 
     public function productSetSelectedTableAction(Request $request): JsonResponse
     {
-        $idProductSet = $request->query->getInt(static::PARAM_ID) ?: null;
+        $idProductSet = (int)$request->query->get(static::PARAM_ID, 0) ?: null;
 
         return $this->jsonResponse(
             $this->getFactory()->createProductSetSelectedTable($idProductSet)->fetchData(),
