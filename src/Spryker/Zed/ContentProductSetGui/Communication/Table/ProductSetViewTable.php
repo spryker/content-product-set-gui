@@ -36,6 +36,16 @@ class ProductSetViewTable extends AbstractTable
      */
     public const COL_ALIAS_NAME = 'name';
 
+    protected const string SELECTOR_WRAPPER = '.id-product-set-fields';
+
+    protected const string SELECTOR_INPUTS_WRAPPER = '.js-selected-product-sets-wrapper';
+
+    protected const string SELECTOR_ADD_BUTTON = '.js-add-product-set';
+
+    protected const string SELECTOR_REMOVE_BUTTON = '.js-delete-product-set';
+
+    protected const string CLASS_CLEAR_ALL_BUTTON = 'clear-fields';
+
     /**
      * @var string
      */
@@ -126,7 +136,25 @@ class ProductSetViewTable extends AbstractTable
 
         $config->setStateSave(false);
 
+        // A content item holds one product set, so no reorder controls are configured here.
+        $config->setTableAttributes([
+            'data-assignable' => [
+                'selectedTableSelector' => '#' . $this->getSelectedTableIdentifier(),
+                'colId' => static::COL_ID_PRODUCT_SET,
+                'wrapperSelector' => static::SELECTOR_WRAPPER,
+                'inputsWrapperSelector' => static::SELECTOR_INPUTS_WRAPPER,
+                'addButtonSelector' => static::SELECTOR_ADD_BUTTON,
+                'removeButtonSelector' => static::SELECTOR_REMOVE_BUTTON,
+                'clearAllButtonClass' => static::CLASS_CLEAR_ALL_BUTTON,
+            ],
+        ]);
+
         return $config;
+    }
+
+    protected function getSelectedTableIdentifier(): string
+    {
+        return sprintf('%s-%s', ProductSetSelectedTable::TABLE_IDENTIFIER, $this->identifierSuffix);
     }
 
     /**
